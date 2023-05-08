@@ -1,0 +1,15 @@
+C:\Users\jared\dotnet_programming\student_grading\bin\Debug\net7.0\student_grading.exe
+C:\Users\jared\dotnet_programming\student_grading\bin\Debug\net7.0\student_grading.deps.json
+C:\Users\jared\dotnet_programming\student_grading\bin\Debug\net7.0\student_grading.runtimeconfig.json
+C:\Users\jared\dotnet_programming\student_grading\bin\Debug\net7.0\student_grading.dll
+C:\Users\jared\dotnet_programming\student_grading\bin\Debug\net7.0\student_grading.pdb
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\student_grading.csproj.AssemblyReference.cache
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\student_grading.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\student_grading.AssemblyInfoInputs.cache
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\student_grading.AssemblyInfo.cs
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\student_grading.csproj.CoreCompileInputs.cache
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\student_grading.dll
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\refint\student_grading.dll
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\student_grading.pdb
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\student_grading.genruntimeconfig.cache
+C:\Users\jared\dotnet_programming\student_grading\obj\Debug\net7.0\ref\student_grading.dll
