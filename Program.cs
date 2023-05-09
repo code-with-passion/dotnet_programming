@@ -1,4 +1,6 @@
 ﻿// initialize variables - graded assignments
+using System.Collections.ObjectModel;
+
 int examAssignments = 5;
 
 int[] sophiaScores = new int[] { 90, 86, 87, 98, 100, 94, 90 };
@@ -18,7 +20,7 @@ int[] studentScores = new int[10];
 string currentStudentLetterGrade = "";
 
 // Write the Report Header to the console
-Console.WriteLine("Student\t\tGrade\n");
+Console.WriteLine("Student\t\tExam Score\tOverall Grade\tExtra Credit\n");
 
 foreach (string name in studentNames)
 {
@@ -54,11 +56,26 @@ foreach (string name in studentNames)
     // initialize/reset the sum of scored assignments
     int sumAssignmentScores = 0;
 
+    // initialize/reset the exam scores
+    decimal examScore = 0;
+
     // initialize/reset the calculated average of exam + extra credit scores
     decimal currentStudentGrade = 0;
 
     // initialize/reset a counter for the number of assignment 
     int gradedAssignments = 0;
+    
+    // initialize/reset a counter of the number of extra credit scores
+    int extraCreditCounter = 0;
+
+    // initialize/reset the sum of extra credit scores / 10
+    decimal extraCreditPoints = 0;
+
+    // initialize/reset the extra credit points
+    decimal extraCreditScore = 0;
+
+    // initialize/reset the sum of the exam scores + extra credit scores 
+    decimal finalStudentGrade = 0;
 
     // loop through the scores array and complete calculations for currentStudent
     foreach (int score in studentScores)
@@ -67,57 +84,68 @@ foreach (string name in studentNames)
         gradedAssignments += 1;
 
         if (gradedAssignments <= examAssignments)
+        {
             // add the exam score to the sum
             sumAssignmentScores += score;
-
+            examScore = (decimal)sumAssignmentScores / gradedAssignments;
+        }
         else
+        {
             // add the extra credit points to the sum - bonus points equal to 10% of an exam score
-            sumAssignmentScores += score / 10;
+            extraCreditScore += score;
+            extraCreditCounter++;
+        } 
     }
 
-    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+    // totalAssigmentCounter = examAssignments + extraCreditCounter;
+    extraCreditScore = (extraCreditScore / extraCreditCounter);
+    extraCreditPoints = extraCreditScore / examAssignments;
+    
+    currentStudentGrade = (decimal)(sumAssignmentScores + extraCreditScore);
+    finalStudentGrade = (decimal)(currentStudentGrade) / examAssignments;
 
-    if (currentStudentGrade >= 97)
+
+    if (finalStudentGrade >= 97)
         currentStudentLetterGrade = "A+";
 
-    else if (currentStudentGrade >= 93)
+    else if (finalStudentGrade >= 93)
         currentStudentLetterGrade = "A";
 
-    else if (currentStudentGrade >= 90)
+    else if (finalStudentGrade >= 90)
         currentStudentLetterGrade = "A-";
 
-    else if (currentStudentGrade >= 87)
+    else if (finalStudentGrade >= 87)
         currentStudentLetterGrade = "B+";
 
-    else if (currentStudentGrade >= 83)
+    else if (finalStudentGrade >= 83)
         currentStudentLetterGrade = "B";
 
-    else if (currentStudentGrade >= 80)
+    else if (finalStudentGrade >= 80)
         currentStudentLetterGrade = "B-";
 
-    else if (currentStudentGrade >= 77)
+    else if (finalStudentGrade >= 77)
         currentStudentLetterGrade = "C+";
 
-    else if (currentStudentGrade >= 73)
+    else if (finalStudentGrade >= 73)
         currentStudentLetterGrade = "C";
 
-    else if (currentStudentGrade >= 70)
+    else if (finalStudentGrade >= 70)
         currentStudentLetterGrade = "C-";
 
-    else if (currentStudentGrade >= 67)
+    else if (finalStudentGrade >= 67)
         currentStudentLetterGrade = "D+";
 
-    else if (currentStudentGrade >= 63)
+    else if (finalStudentGrade >= 63)
         currentStudentLetterGrade = "D";
 
-    else if (currentStudentGrade >= 60)
+    else if (finalStudentGrade >= 60)
         currentStudentLetterGrade = "D-";
 
     else
         currentStudentLetterGrade = "F";
 
     //Console.WriteLine("Student\t\tGrade\tLetter Grade\n");
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
+    Console.WriteLine($"{currentStudent}\t\t{examScore}\t\t{finalStudentGrade}\t{currentStudentLetterGrade}\t{extraCreditScore} ({extraCreditPoints} pts)");
 }
 
 // required for running in VS Code (keeps the Output windows open to view results)
