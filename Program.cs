@@ -59,16 +59,13 @@ foreach (string name in studentNames)
     // initialize/reset the exam scores
     decimal examScore = 0;
 
-    // initialize/reset the calculated average of exam + extra credit scores
-    decimal currentStudentGrade = 0;
-
     // initialize/reset a counter for the number of assignment 
     int gradedAssignments = 0;
     
     // initialize/reset a counter of the number of extra credit scores
     int extraCreditCounter = 0;
 
-    // initialize/reset the sum of extra credit scores / 10
+    // initialize/reset the sum of extra credit scores
     decimal extraCreditPoints = 0;
 
     // initialize/reset the extra credit points
@@ -87,22 +84,26 @@ foreach (string name in studentNames)
         {
             // add the exam score to the sum
             sumAssignmentScores += score;
+            // formula for calculating the Exams Score
             examScore = (decimal)sumAssignmentScores / gradedAssignments;
         }
         else
         {
-            // add the extra credit points to the sum - bonus points equal to 10% of an exam score
+            // add the extra credit score to the sum
             extraCreditScore += score;
+            // counts the number of extra credit
             extraCreditCounter++;
         } 
     }
 
-    // totalAssigmentCounter = examAssignments + extraCreditCounter;
-    extraCreditScore = (extraCreditScore / extraCreditCounter);
-    extraCreditPoints = extraCreditScore / examAssignments;
+    // formula for calculating credit points
+    extraCreditPoints = (extraCreditScore * .10m) / examAssignments;
     
-    currentStudentGrade = (decimal)(sumAssignmentScores + extraCreditScore);
-    finalStudentGrade = (decimal)(currentStudentGrade) / examAssignments;
+    // formula for calculating credit score
+    extraCreditScore = (extraCreditScore / extraCreditCounter);
+
+    // formula for calculating the Overall Grade
+    finalStudentGrade = (decimal)(examScore + extraCreditPoints);
 
 
     if (finalStudentGrade >= 97)
@@ -144,7 +145,6 @@ foreach (string name in studentNames)
     else
         currentStudentLetterGrade = "F";
 
-    //Console.WriteLine("Student\t\tGrade\tLetter Grade\n");
     Console.WriteLine($"{currentStudent}\t\t{examScore}\t\t{finalStudentGrade}\t{currentStudentLetterGrade}\t{extraCreditScore} ({extraCreditPoints} pts)");
 }
 
